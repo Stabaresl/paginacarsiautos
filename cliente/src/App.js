@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProductList from './pages/ProductList';
@@ -24,12 +24,26 @@ const dummyProducts = [
     description: 'Llantas con diseño deportivo y resistente',
     quantity: 1,
   },
-  // Agrega más productos si lo deseas
 ];
 
 function App() {
   const [products] = useState(dummyProducts);
   const [cartItems, setCartItems] = useState([]);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress >= 100) {
+          setTimeout(() => setProgress(0), 500); // Espera 0.5 segundos en 100% antes de resetear
+          return 100;
+        }
+        return oldProgress + 1;
+      });
+    }, 50); // Controla la velocidad de llenado
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Agregar producto al carrito
   const handleAddToCart = (product) => {
@@ -53,8 +67,6 @@ function App() {
   const handleCheckout = (formData) => {
     console.log('Datos de checkout:', formData);
     console.log('Items en el carrito:', cartItems);
-    // Aquí puedes hacer una petición a tu backend para procesar el pago
-    // Limpia el carrito tras completar la compra
     setCartItems([]);
     alert('Compra realizada con éxito');
   };
@@ -101,6 +113,36 @@ function App() {
             } 
           />
         </Routes>
+
+        {/* Sección adicional para permitir el scroll */}
+        <div style={{ height: "150vh", background: "#222", color: "white", textAlign: "center", padding: "50px" }}>
+          <h2>Contenido adicional</h2>
+          <p>Desplázate hacia abajo para ver cómo se oculta la barra de navegación.</p>
+        </div>
+
+        {/* Sección "EN CONSTRUCCIÓN" con la barra de carga en loop */}
+        <div style={{ textAlign: "center", padding: "50px", background: "#111", color: "white" }}>
+          <h1 style={{ fontSize: "2rem", marginBottom: "20px" }}>🚧 EN CONSTRUCCIÓN 🚧</h1>
+          <div style={{
+            width: "50%",
+            margin: "auto",
+            height: "30px",
+            background: "#333",
+            borderRadius: "5px",
+            overflow: "hidden",
+            position: "relative"
+          }}>
+            <div style={{
+              width: `${progress}%`,
+              height: "100%",
+              background: "#FFC107",
+              transition: "width 0.5s ease-in-out"
+            }}>
+            </div>
+          </div>
+          <p style={{ marginTop: "10px", fontSize: "1.2rem" }}>{progress}%</p>
+        </div>
+
       </Router>
     </div>
   );

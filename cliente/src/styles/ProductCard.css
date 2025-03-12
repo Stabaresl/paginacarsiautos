@@ -1,53 +1,50 @@
 .product-card {
-    background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    transition: box-shadow 0.2s ease;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  
-  .product-card:hover {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .product-card__image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  .product-card__name {
-    font-size: 1.1rem;
-    color: #333;
-    margin: 0.5rem 0;
-  }
-  
-  .product-card__description {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0.5rem 0;
-  }
-  
-  .product-card__price {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-  }
-  
-  .product-card__button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .product-card__button:hover {
-    background-color: #007BFF;
-  }
-  
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-card__name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-card__description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.product-card__price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.product-card__button {
+  background-color: #D32F2F;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card__button:hover {
+  background-color: #FFC107;
+  color: black;
+}
