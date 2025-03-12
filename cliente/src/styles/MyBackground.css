@@ -1,8 +1,9 @@
+;
 .my-background {
   height: 100vh;
   width: 100vw;
-  background-image: url('/logo.png'); /* Esta ruta funcionará para recursos dentro de la carpeta 'public' */
-  background-repeat: no-repeat;
+  background-image: url('/public/logo2.png'); /* Accede directamente desde la raíz */
+  background-repeat: no-repeat; 
   background-position: top center, bottom center;
   background-size: cover; 
 }
