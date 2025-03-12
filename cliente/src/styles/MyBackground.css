@@ -1,9 +1,8 @@
-
 .my-background {
   height: 100vh;
   width: 100vw;
-  background-image: url('/public/logo.png'); /* Accede directamente desde la raíz */
-  background-repeat: no-repeat; 
-  background-position: top center, bottom center;
-  background-size: cover; 
+  background-image: url('/public/logo.png'), url('/public/logo2.png'); /* Dos imágenes */
+  background-repeat: no-repeat, no-repeat; 
+  background-position: left center, right center; /* Izquierda y derecha */
+  background-size: 50% auto, 50% auto; /* Cada imagen ocupa la mitad del ancho */
 }
