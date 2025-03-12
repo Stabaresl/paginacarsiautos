@@ -6,3 +6,12 @@
   background-position: left center, right center; /* Izquierda y derecha */
   background-size: 50% auto, 50% auto; /* Cada imagen ocupa la mitad del ancho */
 }
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .my-background {
+    background-image: url('/public/logo.png'); /* Solo una imagen en móvil */
+    background-position: center center; /* Centrada */
+    background-size: contain; /* Ajuste sin recorte */
+  }
+}
