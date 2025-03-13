@@ -1,0 +1,47 @@
+.home-container {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .hero {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Lado izquierdo con texto */
+  .hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10%;
+    color: white;
+    background-color: black;
+  }
+  
+  .hero-left h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: black;
+    background: yellow;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .hero-button:hover {
+    background: white;
+  }
+  
+  /* Lado derecho con imagen */
+  .hero-right {
+    flex: 1;
+    background: url('/public/logo2.png') no-repeat center center/cover;
+  }
+  

@@ -11,3 +11,12 @@
   width: 50%; /* Limita el ancho para que no ocupe toda la pantalla */
   max-width: 600px; /* Máximo ancho para que se vea bien */
 }
+
+.empty-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  background: red;
+  padding: 1rem;
+  border-radius: 5px;
+}

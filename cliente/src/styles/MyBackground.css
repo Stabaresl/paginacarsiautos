@@ -1,17 +1,47 @@
-.my-background {
+/* Contenedor principal */
+.background-container {
+  width: 100%;
   height: 100vh;
-  width: 100vw;
-  background-image: url('/public/logo.png'), url('/public/logo2.png'); /* Dos imágenes */
-  background-repeat: no-repeat, no-repeat; 
-  background-position: left center, right center; /* Izquierda y derecha */
-  background-size: 50% auto, 50% auto; /* Cada imagen ocupa la mitad del ancho */
+  overflow: hidden;
 }
 
-/* Ajustes para dispositivos móviles */
-@media (max-width: 768px) {
-  .my-background {
-    background-image: url('/public/logo.png'); /* Solo una imagen en móvil */
-    background-position: center center; /* Centrada */
-    background-size: contain; /* Ajuste sin recorte */
-  }
+/* Sección principal con imagen */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50vh;  /* Ocupa la mitad de la pantalla */
+  background: linear-gradient(to right, black 50%, transparent 50%);
+}
+
+/* Texto alineado a la izquierda */
+.hero-text {
+  width: 50%;
+  padding-left: 5%;
+  color: white;
+  text-align: left;
+}
+
+/* Imagen del lado derecho */
+.hero-section::after {
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: url('/public/logo.png') no-repeat center center/cover;
+}
+
+/* Botón de comprar */
+.buy-now {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buy-now:hover {
+  background: white;
+  color: black;
 }
