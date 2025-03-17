@@ -1,33 +1,124 @@
+/* Importar la tipografía Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+
+/* Barra de navegación */
 .navbar {
+  font-family: 'Montserrat', sans-serif; /* Aplicar la tipografía */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
   color: white;
+  transition: 0.3s ease-in-out;
+  z-index: 1000;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+/* Efecto cuando el usuario hace scroll */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
 }
 
+/* Logo */
+/* Logo más llamativo */
+.logo a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem; /* Aumentamos el tamaño */
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 2px; /* Espaciado entre letras */
+  background: linear-gradient(90deg, #FFC107, #FF5733); /* Degradado */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Aplica el degradado solo al texto */
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+.logo a:hover {
+  transform: scale(1.1); /* Pequeño aumento de tamaño */
+  text-shadow: 0px 0px 10px rgba(255, 193, 7, 0.8); /* Brillo ligero */
+}
+
+/* Enlaces de navegación */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links li {
-  font-size: 1rem;
-}
-
-.nav-links a {
+/* Estilo de los enlaces */
+.nav-links li a {
+  font-family: 'Montserrat', sans-serif;
   text-decoration: none;
   color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+  text-transform: uppercase;
 }
 
+.nav-links li a:hover {
+  color: #FFC107;
+}
+
+/* Icono del carrito */
 .cart-icon {
-  font-size: 1.2rem;
+  position: relative;
+}
+
+.cart-icon .cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Menú hamburguesa en móviles */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: black;
+    padding: 1rem 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
 }
