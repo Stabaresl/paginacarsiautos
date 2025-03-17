@@ -24,7 +24,7 @@ const Home = () => {
             En Carsiautos, nos especializamos en ofrecer productos y servicios de la más alta calidad para el cuidado, personalización y mantenimiento de vehículos.  
             Nuestra pasión es transformar y mejorar cada auto con tecnología avanzada y accesorios innovadores.
           </p>
-          <a href="/about" className="split-button">Sobre Nosotros</a>
+          <a href="/about" className="split-button">CONOCER MAS</a>
         </div>
       </section>
 

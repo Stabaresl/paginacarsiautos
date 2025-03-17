@@ -1,7 +1,18 @@
 import React from 'react';
 import '../styles/SobreNosotros.css';
+import { FaCar, FaTools, FaDotCircle, FaPaintRoller, FaShower, FaShieldAlt } from 'react-icons/fa';
 
-function About() {
+const specializations = [
+  { icon: <FaCar />, title: "Car Audio", description: "Sistemas de sonido de última generación que elevan tu experiencia de conducción." },
+  { icon: <FaTools />, title: "Accesorios y Repuestos", description: "Encuentra todo lo que necesitas para mejorar y personalizar tu vehículo." },
+  { icon: <FaDotCircle />, title: "Llantas y Rines", description: "Las mejores opciones en seguridad, agarre y estilo para tu auto." },
+  { icon: <FaPaintRoller />, title: "Pintura y Latonería", description: "Servicios de restauración y embellecimiento para tu carrocería." },
+  { icon: <FaShower />, title: "Detailing y Tapicería", description: "Mantén tu vehículo impecable con nuestros servicios de detailing premium." },
+  { icon: <FaShieldAlt />, title: "Polarizado y Protección PPF", description: "Protege tu auto contra rayones y los efectos del clima con tecnología avanzada." }
+];
+
+
+function SobreNostros() {
   return (
     <div className="about-container">
       {/* Primera Sección: Introducción */}
@@ -10,30 +21,37 @@ function About() {
           <img src={`${process.env.PUBLIC_URL}/logocarsiautos.png`} alt="Sobre Nosotros" />
         </div>
         <div className="text-container">
-          <h1>Sobre <span>Nosotros</span></h1>
-          <p>
-            En Carsiautos, nos apasiona brindar a nuestros clientes productos y servicios de la más alta calidad 
-            para el cuidado, personalización y mantenimiento de sus vehículos. Nuestra misión es ofrecer soluciones 
-            innovadoras y accesibles que mejoren tanto la estética como el rendimiento de los autos.
+          <h1 className="about-title">
+            HOLA <span className="highlight">Y BIENVENIDO</span>
+          </h1>
+          <p className="about-description">
+            En <strong>Carsiautos</strong>, la excelencia y la innovación definen nuestro compromiso con cada cliente.
+            Nos especializamos en ofrecer soluciones de alto nivel para <strong>personalización, mantenimiento y protección vehicular</strong>,
+            combinando <strong>tecnología de vanguardia</strong> con una atención excepcional.  
+          </p>
+          <p className="about-description">
+            Cada detalle importa, y nuestro objetivo es brindarle a su vehículo el <strong>cuidado y el rendimiento que merece</strong>.
           </p>
         </div>
       </section>
 
-      {/* Segunda Sección: Especializaciones */}
+      {/* Nueva Sección de Imagen a Pantalla Completa */}
+      <section className="full-width-image">
+        <img src={`${process.env.PUBLIC_URL}/imagen especializacion.png`} alt="Imagen Destacada" />
+      </section>
+
+      {/* Sección Especialización */}
       <section className="about-specialization">
-        <h2>Nuestras Especialidades</h2>
-        <p><strong>Nos especializamos en diversas áreas, incluyendo:</strong></p>
-        <ul>
-          <li><strong>Car Audio:</strong> Sistemas de sonido de última generación.</li>
-          <li><strong>Accesorios y Repuestos:</strong> Gran variedad de productos.</li>
-          <li><strong>Llantas y Rines:</strong> Opciones de calidad y seguridad.</li>
-          <li><strong>Pintura y Latonería:</strong> Servicios para mantener la carrocería.</li>
-          <li><strong>Detailing y Tapicería:</strong> Cuidado y restauración.</li>
-          <li><strong>Polarizado y Protección PPF:</strong> Protección avanzada.</li>
-        </ul>
+        {specializations.map((item, index) => (
+          <div key={index} className="specialization-item">
+            {item.icon}
+            <h3 className="specialization-title">{item.title}</h3>
+            <p className="specialization-description">{item.description}</p>
+          </div>
+        ))}
       </section>
     </div>
   );
 }
 
-export default About;
+export default SobreNostros;

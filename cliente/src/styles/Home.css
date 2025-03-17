@@ -102,7 +102,7 @@ body {
   align-items: stretch;
   justify-content: center;
   padding: 50px 10%;
-  background: linear-gradient(135deg, #000000, #333333);
+  background: linear-gradient(135deg, #000000, #0e0d0daa);
   color: white;
 }
 
