@@ -1,0 +1,28 @@
+.about-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .about-banner {
+    background: url('/public/logo2.png') center/cover no-repeat;
+    color: white;
+    padding: 80px 0;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .about-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .about-images img {
+    width: 300px;
+    border-radius: 10px;
+  }
+  

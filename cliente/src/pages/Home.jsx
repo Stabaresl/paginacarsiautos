@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Home.css';
+import Carousel from '../components/Carousel'; // Importamos el carrusel
 
 const Home = () => {
   return (
@@ -51,6 +52,11 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Carrusel de Productos */}
+      <section className="carousel-section">
+        <Carousel />
       </section>
     </div>
   );

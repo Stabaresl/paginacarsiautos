@@ -1,0 +1,91 @@
+.product-buttons {
+    display: flex;
+    flex-direction: column;  /* Si prefieres en fila, cambia a row */
+    align-items: center; 
+    gap: 15px; 
+    margin-top: 20px;
+  }
+  
+  /* ===== SELECTOR DE CANTIDAD ===== */
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-btn {
+    background-color: #fff;
+    border: 2px solid #444;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .quantity-display {
+    font-size: 16px;
+    width: 30px;
+    text-align: center;
+  }
+  
+  /* ===== BOTÓN: AGREGAR AL CARRITO (Naranja degradado) ===== */
+  .add-to-cart {
+    background: linear-gradient(45deg, #ff4d00, #ff9800); /* Ajusta según tu gama */
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(255, 77, 0, 0.5);
+  }
+  
+  .add-to-cart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 77, 0, 0.7);
+  }
+  
+  /* ===== BOTÓN: COMPRAR AHORA (Negro) ===== */
+  .buy-now {
+    background-color: black;
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .buy-now:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* ===== BOTÓN: CHATEAR CON UN ASESOR (Verde) ===== */
+  .chat-advisor {
+    background-color: green;
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+  }
+  
+  .chat-advisor:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 128, 0, 0.5);
+  }
+  

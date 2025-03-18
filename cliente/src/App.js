@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
-import SobreNosotros from "./pages/SobreNosotros"; // IMPORTA EL COMPONENTE
+import SobreNosotros from "./pages/SobreNosotros";
+import ProductDetail from "./pages/ProductDetail";
 import "./App.css";
 
 function App() {
-  // Cargar el carrito desde localStorage para evitar pérdida de datos
+  // Cargar el carrito desde localStorage
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem("cartItems");
     return savedCart ? JSON.parse(savedCart) : [];
@@ -40,8 +41,11 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<SobreNosotros />} /> {/* RUTA CORRECTA */}
+          <Route path="/about" element={<SobreNosotros />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/product/:id" element={<ProductDetail setCartItems={setCartItems} />} />
+          <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
         </Routes>
 
         {/* Barra de carga */}

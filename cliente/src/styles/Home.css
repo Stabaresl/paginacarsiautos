@@ -174,6 +174,25 @@ body {
   padding: 50px 10%;
   text-align: center;
   background-color: #f5f5f5;
+  color: #333; /* Texto oscuro para buen contraste */
+}
+
+/* Ajusta los títulos y párrafos dentro de info-section si quieres matices distintos */
+.info-section h2 {
+  color: #222; 
+}
+
+.info-section p {
+  color: #555;
+}
+
+/* Tarjetas dentro de la sección informativa */
+.info-item {
+  background: #fff;
+  color: #333;
+}
+.info-item h3 {
+  color: #222;
 }
 
 .info-grid {
@@ -218,4 +237,9 @@ body {
   .split-text h2 {
     font-size: 2.8rem;
   }
+}
+.recommendations {
+  white-space: normal; /* Permite que el texto haga salto de línea */
+  overflow: visible;   /* Evita que se recorte el contenido */
+  text-align: justify; /* Para mejorar la apariencia del texto */
 }
