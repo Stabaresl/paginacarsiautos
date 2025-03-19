@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBars } from 'react-icons/fa';
 import '../styles/Navbar.css';
@@ -6,24 +6,31 @@ import '../styles/Navbar.css';
 function Navbar({ cartItems }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(window.scrollY);
 
-  // Detectar el scroll para cambiar el fondo
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+
+      // Mostrar la navbar si el usuario sube o está en la parte superior
+      setVisible(currentScrollY < lastScrollY.current || currentScrollY === 0);
+
+      // Actualizar el valor de referencia
+      lastScrollY.current = currentScrollY;
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${visible ? 'visible' : 'hidden'}`}>
       <div className="logo">
-        <Link to="/">CARSIAUTOS</Link>
+        <Link to="/">
+          <img src={`${process.env.PUBLIC_URL}/iconocarsiautos.ico`}  alt="Logo" className="logo-img" />
+        </Link>
       </div>
 
       {/* Botón de menú en móviles */}

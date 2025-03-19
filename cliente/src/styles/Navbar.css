@@ -3,7 +3,7 @@
 
 /* Barra de navegación */
 .navbar {
-  font-family: 'Montserrat', sans-serif; /* Aplicar la tipografía */
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,14 +14,44 @@
   left: 0;
   background: transparent;
   color: white;
-  transition: 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out, background 0.3s ease-in-out;
   z-index: 1000;
 }
-
+.navbar {
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
 /* Efecto cuando el usuario hace scroll */
 .navbar.scrolled {
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
+}
+
+
+/* Ocultar navbar cuando se baja */
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+/* Mostrar navbar cuando se sube */
+.navbar.visible {
+  transform: translateY(0);
+}
+/* Estilos del logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 100px; /* Ajusta el tamaño según tu necesidad */
+  width: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover en el logo */
+.logo-img:hover {
+  transform: scale(1.1); /* Aumenta el tamaño */
 }
 
 /* Logo */

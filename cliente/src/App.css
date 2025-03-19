@@ -1,3 +1,19 @@
+/* Reset general para evitar márgenes y paddings predeterminados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Asegurar que el body y html no permitan desplazamiento horizontal */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #000; /* Fondo negro para contraste */
+  color: #fff; /* Texto blanco para legibilidad */
+  font-family: Arial, sans-serif;
+}
+
 /* Contenedor principal */
 .contenedor {
   display: flex;
@@ -5,6 +21,8 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  max-width: 100vw; /* Evita desbordamiento horizontal */
+  overflow: hidden;
 }
 
 /* Títulos */
@@ -29,29 +47,36 @@
 .imagen {
   max-width: 100%;
   height: auto;
+  display: block; /* Evita márgenes extras de imágenes inline */
   border-radius: 10px;
 }
 
-/* Sección negra (como la que ves en la imagen) */
+/* Sección negra */
 .seccion-negra {
   background-color: black;
   padding: 30px 20px;
   border-radius: 10px;
+  width: 100%; /* Asegurar que no sobrepase el ancho del viewport */
+  max-width: 1200px;
 }
 
 /* Media Query para pantallas grandes */
 @media (min-width: 768px) {
   .contenedor {
-      flex-direction: row; /* En pantallas grandes, usa diseño horizontal */
-      align-items: flex-start;
+    flex-direction: row; /* En pantallas grandes, usa diseño horizontal */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Evita desbordamiento horizontal */
+    justify-content: space-between;
   }
 
   .texto {
-      text-align: left;
+    text-align: left;
+    width: 50%;
   }
 
   .imagen {
-      width: 50%;
+    width: 50%;
+    max-width: 100%;
   }
 }
 
@@ -60,6 +85,7 @@
   text-align: center;
   padding: 50px;
   background: #111;
+  width: 100%;
 }
 
 .progress-bar {
@@ -75,4 +101,13 @@
   height: 100%;
   background: #FFC107;
   transition: width 0.5s ease-in-out;
+}
+
+/* Pie de página */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: #fff;
+  width: 100%;
 }

@@ -18,7 +18,7 @@ function SobreNostros() {
       {/* Primera Sección: Introducción */}
       <section className="about-intro">
         <div className="image-container">
-          <img src={`${process.env.PUBLIC_URL}/logocarsiautos.png`} alt="Sobre Nosotros" />
+          <img src={`${process.env.PUBLIC_URL}/logocarsiautos-sinfondo.png`} alt="Sobre Nosotros" />
         </div>
         <div className="text-container">
           <h1 className="about-title">
