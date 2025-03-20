@@ -69,12 +69,16 @@ body::before {
 .product-card {
   flex: 0 0 60%;
   max-width: 60%;
-  background: rgba(0, 0, 0, 0.7);  /* Fondo oscuro con opacidad */
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  text-align: left;
+
+  /* Lo hacemos contenedor flex */
+  display: flex;
+  flex-direction: column;
+  text-align: left;    /* Si quieres mantener el texto alineado a la izquierda */
 }
 
 /* TÍTULO DEL PRODUCTO */
@@ -141,10 +145,11 @@ body::before {
   font-size: 18px;
 }
 
-/* BOTÓN "VOLVER AL INICIO" */
+
+/* El botón se centrará aunque el texto esté a la izquierda */
 .back-button {
   display: block;
-  margin: 20px auto 0;
+  margin: 20px auto 0; /* Mueve el botón 20px hacia abajo y lo centra horizontalmente */
   background: linear-gradient(45deg, #005bb5, #ff0000);
   color: #fff;
   padding: 15px 30px;
@@ -156,7 +161,7 @@ body::before {
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  text-align: center;
+  text-align: center; /* Centra el texto dentro del botón */
 }
 
 .back-button:hover {

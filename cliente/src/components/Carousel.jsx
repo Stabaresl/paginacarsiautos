@@ -16,6 +16,11 @@ const products = [
     name: "Restaurador de llantas Alemán",
     image: "/restaurador.png",
   },
+  {
+    id:3,
+    name: "Desengrasante Nanotecnológico de Alto Rendimiento",
+    image:"/Desengrasante.png",
+  }
 ];
 
 // Componente de flecha personalizada
