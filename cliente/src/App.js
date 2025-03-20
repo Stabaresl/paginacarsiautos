@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import SobreNosotros from "./pages/SobreNosotros";
 import ProductDetail from "./pages/ProductDetail";
+import Nanotechnology from "./pages/Nanotechnology"; // 📌 Nueva importación
 import "./App.css";
 
 function App() {
@@ -42,10 +43,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<SobreNosotros />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/product/:id" element={<ProductDetail setCartItems={setCartItems} />} />
           <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
+          <Route path="/product/:id" element={<ProductDetail setCartItems={setCartItems} />} />
+          <Route path="/nanotechnology" element={<Nanotechnology />} /> {/* 📌 Nueva ruta añadida */}
         </Routes>
 
         {/* Barra de carga */}

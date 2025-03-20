@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Home.css';
+import Carousel from '../components/Carousel';
 import SocialSidebar from '../components/SocialSidebar';
-import Carousel from '../components/Carousel'; // Importamos el carrusel
 
 const Home = () => {
 
@@ -33,36 +33,19 @@ const Home = () => {
           <a href="/about" className="split-button">CONOCER MÁS</a>
         </div>
       </section>
-
-      {/* Sección Informativa */}
-      <section className="info-section">
-        <div className="info-content">
-          <h2>Calidad y rendimiento para tu vehículo</h2>
-          <p>Ofrecemos accesorios de alta calidad para mejorar la seguridad, estética y desempeño de tu automóvil.</p>
-
-          <div className="info-boxes">
-  <div className="info-box security">
-    <h3>Seguridad</h3>
-    <p>Accesorios para garantizar la protección de tu auto.</p>
+{/* Sección Informativa*/}
+<section className="info-section">
+  <div className="info-image">
+    <img src={`${process.env.PUBLIC_URL}/nanotecnologia.png`} alt="Nanotecnología en autos" />
   </div>
-
-  <div className="info-box estetica">
-    <h3>Estética</h3>
-    <p>Personaliza y mejora la apariencia de tu vehículo.</p>
+  <div className="info-text">
+    <h2>Innovación en Nanotecnología</h2>
+    <p>
+      Descubre cómo nuestra tecnología de vanguardia protege y mejora el rendimiento de tu vehículo con nanotecnología de última generación.
+    </p>
+    <a href="/nanotechnology" className="split-button">Saber Más</a>
   </div>
-
-  <div className="info-box rendimiento">
-    <h3>Rendimiento</h3>
-    <p>Mejora la eficiencia y potencia de tu motor.</p>
-  </div>
-</div>
-        </div>
-      </section>
-
-      {/* Carrusel de Productos */}
-      <section className="carousel-section">
-        <Carousel />
-      </section>
+</section>
 
       {/* Carrusel de Productos */}
       <section className="carousel-section">

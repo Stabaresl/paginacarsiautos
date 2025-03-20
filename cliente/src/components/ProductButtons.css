@@ -31,7 +31,7 @@
   
   /* ===== BOTÓN: AGREGAR AL CARRITO (Naranja degradado) ===== */
   .add-to-cart {
-    background: linear-gradient(45deg, #ff4d00, #ff9800); /* Ajusta según tu gama */
+    background: linear-gradient(100deg, #ff0000, #0683ff); /* Rojo a Azul */
     color: #fff;
     padding: 14px 28px;
     border: none;

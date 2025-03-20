@@ -1,20 +1,20 @@
 /* Contenedor principal del Carousel */
 .carousel-container {
     width: 90%;
-    max-width: 1200px; /* Ajuste para centrar y evitar que sea muy ancho */
-    margin: 60px auto; /* Margen superior para separación */
+    max-width: 1600px;
+    margin: 60px auto;
     text-align: center;
-    background: white; /* Fondo blanco para seguir el estilo */
+    background: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente si es necesario */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-/* Título centrado con mismo estilo que otras secciones */
+/* Título centrado con nuevo estilo */
 .carousel-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
@@ -22,11 +22,11 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 25px;
-    background: linear-gradient(90deg, #ff4d00, #ff9800);
+    background: linear-gradient(100deg, #ff0000, #0683ff); /* Rojo a Azul */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-align: center; /* Centra el título */
-    display: block; /* Asegura que ocupe todo el ancho disponible */
+    text-align: center;
+    display: block;
 }
 
 /* Estilo para el carrusel */
@@ -34,7 +34,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Aumenta la separación entre productos */
+    gap: 30px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -51,9 +51,9 @@
 .carousel-item {
     flex: 0 0 auto;
     width: 250px;
-    min-height: 450px; /* Tamaño uniforme para todos */
+    min-height: 450px;
     scroll-snap-align: center;
-    background: #f8f8f8;
+    background: #f0f0f0; /* Fondo gris claro */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -65,15 +65,15 @@
 }
 
 .carousel-item:hover {
-    transform: scale(1.1); /* Hace zoom en el producto seleccionado */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Resalta el seleccionado */
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo de la imagen dentro del carrusel */
 .carousel-item img {
     width: 100%;
-    height: 200px; /* Altura fija para mantener uniformidad */
-    object-fit: contain; /* Evita el recorte de la imagen */
+    height: 200px;
+    object-fit: contain;
     border-radius: 8px;
     background-color: white;
 }
@@ -83,7 +83,7 @@
     margin-top: 10px;
     font-size: 20px;
     font-weight: 700;
-    color: #ffffff;
+    color: #ffffff; /* Negro */
 }
 
 /* Botón para ver el producto */
@@ -91,7 +91,7 @@
     display: inline-block;
     margin-top: 10px;
     padding: 10px 15px;
-    background: linear-gradient(90deg, #ff4d00, #ff9800);
+    background: linear-gradient(90deg, #ff0000, #005bb5); /* Rojo a Azul */
     color: white;
     text-decoration: none;
     font-weight: 700;
@@ -100,7 +100,7 @@
 }
 
 .carousel-item a:hover {
-    background: linear-gradient(90deg, #ff9800, #ff4d00);
+    background: linear-gradient(90deg, #005bb5, #ff0000);
     transform: scale(1.05);
 }
 
@@ -114,4 +114,3 @@
         font-size: 2.5rem;
     }
 }
-    

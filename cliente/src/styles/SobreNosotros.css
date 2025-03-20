@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0); /* Negro */
     color: white;
     padding: 100px 50px 50px;
 }
@@ -44,7 +44,8 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #ff4d00, #ff9800);
+    /* Gradiente de rojo a azul */
+    background: linear-gradient(90deg, #ff0000, #005bb5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -83,7 +84,7 @@
 
 .specialization-item svg {
   font-size: 30px; /* Íconos más pequeños */
-  color: #ff4d00;
+  color: #ff0000; /* Rojo vibrante */
   margin-bottom: 8px;
 }
 
