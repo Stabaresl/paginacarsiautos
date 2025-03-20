@@ -39,6 +39,39 @@ const productData = {
       "Protección UV contra el desgaste",
     ],
   },
+  3: {
+    name: "Desengrasante Nanotecnológico de Alto Rendimiento",
+    image: "/desengrasante.png",
+    description:
+      "Nuestro desengrasante nanotecnológico es una fórmula avanzada diseñada para eliminar eficazmente grasas, aceites y suciedad incrustada en motores y superficies industriales.",
+    features: [
+      "Tecnología Nanotecnológica: Las nanopartículas penetran profundamente en la suciedad, desintegrándola desde el interior para una limpieza superior.",
+      "Limpieza Profunda y Eficaz: Elimina grasas, aceites, hollín y suciedad persistente de motores, maquinaria, herramientas y superficies industriales.",
+      "Seguro para Múltiples Superficies: Formulado para ser seguro en motores con componentes delicados, acero inoxidable, plásticos, gomas y cables eléctricos, sin causar daños ni decoloración.",
+      "Protección y Cuidado: A diferencia de los desengrasantes convencionales, nuestra fórmula protege las superficies tratadas, previniendo la corrosión y el deterioro.",
+      "Fácil Aplicación: Su presentación en spray permite una aplicación precisa y uniforme, llegando a áreas de difícil acceso.",
+      "Versatilidad: Ideal para uso en automóviles, motocicletas, maquinaria industrial, herramientas, equipos de jardinería y más.",
+      "Concentrado: Fórmula de alta concentración que ofrece un rendimiento superior y una mayor durabilidad.",
+    ],
+    usage: [
+      "Agitar bien antes de usar.",
+      "Rociar el desengrasante directamente sobre la superficie a limpiar.",
+      "Dejar actuar durante unos minutos para que la fórmula penetre y disuelva la suciedad.",
+      "Frotar con un cepillo o paño limpio si es necesario.",
+      "Enjuagar con agua o limpiar con un paño húmedo.",
+    ],
+    additional: [
+      "Apto para múltiples aplicaciones: motores, herramientas, maquinaria y más.",
+      "Seguro y eficiente en diversas superficies.",
+    ],
+    recommendations: [
+      "Mantener fuera del alcance de los niños.",
+      "Evitar el contacto con los ojos y la piel.",
+      "En caso de contacto, enjuagar con abundante agua.",
+      "No ingerir.",
+      "Utilizar en un área bien ventilada.",
+    ],
+  },
 };
 
 const ProductDetail = () => {

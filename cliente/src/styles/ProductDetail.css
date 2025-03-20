@@ -13,28 +13,25 @@
 }
 
 .product-image {
-  width: 50vw; /* La imagen ocupa la mitad izquierda de la pantalla */
-  display: flex;
-  justify-content: center; /* Asegura que la imagen se quede a la izquierda */
-  align-items: center;
-  flex-direction: column; /* Coloca la imagen y miniaturas en columna */
+  width: 100%;
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-.product-image img {
-  width: auto;
-  max-width: 400px;
-  height: auto;
-  object-fit: contain; /* La imagen llena el contenedor sin deformarse */
-  border-radius: 10px; /* Si quieres que no tenga bordes redondeados */
-}
-
-.product-info {
-  width: 50vw; /* La información ocupa la otra mitad */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  box-sizing: border-box;
+/*
+  TARJETA DEL PRODUCTO (texto):
+  - Asigna ~60% del espacio en pantallas grandes.
+*/
+.product-card {
+  flex: 0 0 60%;
+  max-width: 60%;
+  background: rgba(0, 0, 0, 0.7);  /* Fondo oscuro con opacidad */
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 
 .product-price {
@@ -48,18 +45,21 @@
   color: #f39c12;
 }
 
-.product-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.btn {
-  padding: 12px;
+/* BOTÓN "VOLVER AL INICIO" */
+.back-button {
+  display: block;
+  margin: 20px auto 0;
+  background: linear-gradient(45deg, #005bb5, #ff0000);
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
   text-align: center;
 }
 
