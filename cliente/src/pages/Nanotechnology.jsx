@@ -25,7 +25,10 @@ const Nanotechnology = () => {
           Nuestros productos manejan nanotecnología, lo que los posiciona como uno de los mejores en el mercado, brindando confianza para su uso y garantía en el efecto prometido.
         </p>
       </section>
-
+      {/* Nueva Sección - Imagen Completa */}
+      <section className="full-width-image">
+        <img src={`${process.env.PUBLIC_URL}/fondonano.png`} alt="Imagen Destacada" />
+      </section>
       {/* Sección Hero */}
       <section className="nanotech-hero">
         <h1>Nanotecnología para Restaurar Pinturas Negras Automotrices</h1>
