@@ -19,7 +19,7 @@ const products = [
   {
     id:3,
     name: "Desengrasante Nanotecnológico de Alto Rendimiento",
-    image:"/Desengrasante.png",
+    image:"../Desengrasante.png",
   }
 ];
 
