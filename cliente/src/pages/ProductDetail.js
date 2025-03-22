@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/ProductDetail.css";
 import ProductButtons from "../components/ProductButtons";
 
+// Datos simulados de productos
 const productData = {
   1: {
     name: "Restaurador Premium para Partes Plásticas",
-    images: [
-      "/restaurador2.png",
-      "/restaurador2_1.png",
-      "/restaurador2_2.png",
-    ],
+    images: ["/restaurador2.png", "/restaurador2_1.png", "/restaurador2_2.png"],
     price: "19.210,00",
     rating: 5.0,
     description:
@@ -24,11 +21,7 @@ const productData = {
   },
   2: {
     name: "Restaurador de llantas Alemán",
-    images: [
-      "/restaurador.png",
-      "/restaurador_1.png",
-      "/restaurador_2.png",
-    ],
+    images: ["/restaurador.png", "/restaurador_1.png", "/restaurador_2.png"],
     price: "15.990,00",
     rating: 4.8,
     description:
@@ -39,116 +32,119 @@ const productData = {
       "Protección UV contra el desgaste",
     ],
   },
-  3: {
-    name: "Desengrasante Nanotecnológico de Alto Rendimiento",
-    images: ["/desengrasante.png"],
-    description:
-      "Nuestro desengrasante nanotecnológico es una fórmula avanzada diseñada para eliminar eficazmente grasas, aceites y suciedad incrustada en motores y superficies industriales.",
-    features: [
-      "Tecnología Nanotecnológica: Las nanopartículas penetran profundamente en la suciedad, desintegrándola desde el interior para una limpieza superior.",
-      "Limpieza Profunda y Eficaz: Elimina grasas, aceites, hollín y suciedad persistente de motores, maquinaria, herramientas y superficies industriales.",
-      "Seguro para Múltiples Superficies: Formulado para ser seguro en motores con componentes delicados, acero inoxidable, plásticos, gomas y cables eléctricos, sin causar daños ni decoloración.",
-      "Protección y Cuidado: A diferencia de los desengrasantes convencionales, nuestra fórmula protege las superficies tratadas, previniendo la corrosión y el deterioro.",
-      "Fácil Aplicación: Su presentación en spray permite una aplicación precisa y uniforme, llegando a áreas de difícil acceso.",
-      "Versatilidad: Ideal para uso en automóviles, motocicletas, maquinaria industrial, herramientas, equipos de jardinería y más.",
-      "Concentrado: Fórmula de alta concentración que ofrece un rendimiento superior y una mayor durabilidad.",
-    ],
-    usage: [
-      "Agitar bien antes de usar.",
-      "Rociar el desengrasante directamente sobre la superficie a limpiar.",
-      "Dejar actuar durante unos minutos para que la fórmula penetre y disuelva la suciedad.",
-      "Frotar con un cepillo o paño limpio si es necesario.",
-      "Enjuagar con agua o limpiar con un paño húmedo.",
-    ],
-    additional: [
-      "Apto para múltiples aplicaciones: motores, herramientas, maquinaria y más.",
-      "Seguro y eficiente en diversas superficies.",
-    ],
-    recommendations: [
-      "Mantener fuera del alcance de los niños.",
-      "Evitar el contacto con los ojos y la piel.",
-      "En caso de contacto, enjuagar con abundante agua.",
-      "No ingerir.",
-      "Utilizar en un área bien ventilada.",
-    ],
-  },
 };
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = productData[id];
 
-  const [selectedImage, setSelectedImage] = useState(product?.images?.[0] || "");
-  const [zoomStyle, setZoomStyle] = useState({});
-  const [zoomVisible, setZoomVisible] = useState(false);
+  const [mainImage, setMainImage] = useState(product?.images[0]);
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [showZoom, setShowZoom] = useState(false);
+  const zoomBoxSize = 200;
+  const zoomFactor = 3;
+
+  const animationFrameRef = useRef(null);
 
   if (!product) {
     return <h2>Producto no encontrado</h2>;
   }
 
+  const handleThumbnailClick = (image) => {
+    setMainImage(image);
+  };
+
+   // Función para calcular la posición del zoom en móviles y escritorio
+   const calculateZoomPosition = (clientX, clientY, target) => {
+    const { left, top, width, height } = target.getBoundingClientRect();
+    const offsetX = clientX - left;
+    const offsetY = clientY - top;
+
+    const zoomX = (offsetX / width) * 100;
+    const zoomY = (offsetY / height) * 100;
+
+    setCursorPosition({ x: clientX + 20, y: clientY + 20 });
+    setZoomPosition({ x: zoomX, y: zoomY });
+  };
+
+  // Maneja el movimiento del zoom con mouse
   const handleMouseMove = (e) => {
-    const { left, top, width, height } = e.target.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-
-    setZoomStyle({
-      backgroundImage: `url(${selectedImage})`,
-      backgroundSize: "500%", // Mayor zoom
-      backgroundPosition: `${x}% ${y}%`,
-      top: `${e.clientY}px`,
-      left: `${e.clientX + 20}px`, // Aparece a la derecha del mouse
-      display: "block",
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
+    animationFrameRef.current = requestAnimationFrame(() => {
+      calculateZoomPosition(e.clientX, e.clientY, e.target);
     });
-
-    setZoomVisible(true);
   };
 
-  const handleMouseLeave = () => {
-    setZoomVisible(false);
+  // Maneja el movimiento del zoom con el dedo en pantallas táctiles
+  const handleTouchMove = (e) => {
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
+    animationFrameRef.current = requestAnimationFrame(() => {
+      const touch = e.touches[0]; // Obtiene la primera posición del dedo
+      calculateZoomPosition(touch.clientX, touch.clientY, e.target);
+    });
   };
+
 
   return (
     <div className="product-detail-container">
-      <div className="product-image">
-        {/* Imagen Principal */}
-        <div className="zoom-container">
-          <img
-            src={selectedImage}
-            alt={product.name}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          />
-          {zoomVisible && <div className="zoom-lens" style={zoomStyle}></div>}
+      {/* Sección Imagen */}
+      <div className="image-gallery">
+        <div
+          className="main-image"
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setShowZoom(true)}
+          onMouseLeave={() => setShowZoom(false)}
+          onTouchMove={handleTouchMove}
+          onTouchStart={() => setShowZoom(true)}
+          onTouchEnd={() => setShowZoom(false)}
+        >
+          <img src={mainImage} alt="Producto" />
         </div>
 
-        {/* Miniaturas */}
-        <div className="thumbnail-gallery">
-          {product.images.map((image, index) => (
+        {showZoom && (
+          <div
+            className="zoom-box"
+            style={{
+              left: `${cursorPosition.x}px`,
+              top: `${cursorPosition.y}px`,
+              backgroundImage: `url(${mainImage})`,
+              backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+              backgroundSize: `${zoomFactor * 100}%`,
+            }}
+          />
+        )}
+
+        <div className="thumbnail-container">
+          {product.images.map((img, index) => (
             <img
               key={index}
-              src={image}
-              alt={`Miniatura ${index + 1}`}
-              onClick={() => setSelectedImage(image)}
-              className={selectedImage === image ? "selected" : ""}
+              src={img}
+              alt="Miniatura"
+              className="thumbnail"
+              onClick={() => handleThumbnailClick(img)}
             />
           ))}
         </div>
       </div>
 
-      {/* Información del Producto */}
+      {/* Sección Información del Producto */}
       <div className="product-info">
         <h1>{product.name}</h1>
-        <p className="product-price">${product.price}</p>
-        <p className="product-description">{product.description}</p>
-
+        <p className="price">${product.price}</p>
+        <p className="description">{product.description}</p>
         <ul>
           {product.features.map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}
         </ul>
-
-        {/* Botones */}
-        <ProductButtons />
+        <div className="product-buttons">
+          <ProductButtons productId={id} />
+        </div>
       </div>
     </div>
   );

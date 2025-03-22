@@ -1,147 +1,177 @@
+/* CONTENEDOR PRINCIPAL */
 .product-detail-container {
   display: flex;
-  align-items: center; /* Centra los elementos verticalmente */
-  justify-content: flex-start; /* Mantiene la alineación a la izquierda */
-  gap: 30px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 50px;
   background: linear-gradient(#000000, #ede8e885);
   width: 100vw;
-  height: 100vh;
-  margin: 0; /* Elimina márgenes */
+  min-height: 150vh;
+  margin: 0;
   padding: 0;
-  padding-top: 140px;
+  padding-top: 300px;
   overflow: hidden;
 }
 
-.product-image {
-  flex: 0 0 50%; /* Ajusta el ancho de la sección de imagen */
+/* SECCIÓN IMAGEN */
+.image-gallery {
+  width: 40%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra la imagen a la izquierda */
-  justify-content: center; /* Centra la imagen verticalmente */
+  align-items: center;
+  justify-content: center;
 }
 
-.product-image img {
-  width: auto;
+.main-image {
+  position: relative;
+  width: 100%;
   max-width: 400px;
+  touch-action: none; /* Evita el desplazamiento del navegador al hacer zoom */
+}
+
+.main-image img {
+  width: 100%;
   height: auto;
-  object-fit: contain; /* Evita que se estire */
-  border-radius: 10px;
-}
-/*
-  TARJETA DEL PRODUCTO (texto):
-  - Asigna ~60% del espacio en pantallas grandes.
-*/
-.product-card {
-  flex: 0 0 60%;
-  max-width: 60%;
-  background: rgba(0, 0, 0, 0.7);  /* Fondo oscuro con opacidad */
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  text-align: left;
-}
-
-.product-price {
-  color: green;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.product-rating {
-  font-size: 18px;
-  color: #f39c12;
-}
-
-/* BOTÓN "VOLVER AL INICIO" */
-.back-button {
-  display: block;
-  margin: 20px auto 0;
-  background: linear-gradient(45deg, #005bb5, #ff0000);
-  color: #fff;
-  padding: 15px 30px;
-  border: none;
+  max-height: 650px;
+  object-fit: contain;
   border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  text-align: center;
+  cursor: crosshair;
 }
 
-.add-to-cart {
-  background-color: #004d40;
-  color: white;
+/* EFECTO LUPA */
+.zoom-box {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  border: 3px solid white;
+  background-size: 600%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.01s ease-in-out, background-position 0.3s ease-in-out;
 }
-.thumbnail-gallery {
+.main-image:hover .zoom-effect {
+  opacity: 1;
+}
+
+/* MINIATURAS */
+.thumbnail-container {
   display: flex;
-  justify-content: flex-start; /* Alinea miniaturas a la izquierda */
+  justify-content: center;
   gap: 10px;
   margin-top: 10px;
 }
 
-.thumbnail-gallery img {
-  width: 60px;
-  height: auto;
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
   cursor: pointer;
   border-radius: 5px;
   transition: transform 0.2s ease-in-out;
 }
 
-
 .thumbnail:hover {
-  transform: scale(1.1); /* Efecto de hover */
-}
-.thumbnail.active {
-  border: 3px solid #ff6600;
+  transform: scale(1.1);
+  border: 2px solid #fff;
 }
 
-.next-section {
-  margin-top: 100px; /* Empuja la siguiente sección hacia abajo */
-}
-
-.zoom-container {
-  position: relative;
-  display: inline-block;
-}
-
-.zoom-container img {
-  width: auto;
-  max-width: 400px;
-  height: auto;
-  border-radius: 10px;
-}
-
-.zoom-lens {
-  position: fixed; /* Fijo para que siga el cursor */
-  width: 200px;
-  height: 200px;
-  border: 2px solid #000;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  display: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-}
-
-.product-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(#000000, #ede8e885);
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 140px;
-}
+/* SECCIÓN INFORMACIÓN */
 .product-info {
-  flex: 0 0 50%;
+  width: 50%;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.product-info h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #f4c542;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+ul li {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* BOTONES DE COMPRA */
+.product-buttons {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  max-width: 500px; /* Limita el ancho del contenido de texto */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ESTILO PARA LAS PESTAÑAS */
+.product-tabs {
+  margin-top: 40px;
+  background: #1c1c1e;
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+/* CONTENEDOR FLEXIBLE PARA LAS PESTAÑAS */
+.tabs {
+  display: flex;
+  justify-content: space-between; /* Distribuye el espacio uniformemente */
+  width: 100%;
+}
+
+/* ESTILO DE LOS BOTONES DE PESTAÑAS */
+.tabs button {
+  flex: 1; /* Todas las pestañas ocupan el mismo espacio */
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  padding: 15px;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  text-align: center;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* ESTILO PARA LA PESTAÑA ACTIVA */
+.tabs button.active {
+  color: #f4c542;
+  font-weight: bold;
+  border-bottom: 3px solid #f4c542;
+}
+
+/* AJUSTE DEL CONTENIDO DE LAS PESTAÑAS */
+.tab-content {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px; /* Espaciado para evitar cortes */
+  box-sizing: border-box;
+}
+
+/* RESPONSIVIDAD PARA MÓVILES */
+@media (max-width: 768px) {
+  .tabs {
+    flex-wrap: wrap; /* Permite que las pestañas pasen a varias filas si es necesario */
+  }
+
+  .tabs button {
+    flex: 1 1 50%; /* En pantallas pequeñas, cada pestaña ocupa la mitad del ancho */
+  }
 }
