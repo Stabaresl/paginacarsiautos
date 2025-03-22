@@ -45,7 +45,7 @@ body {
   padding: 20px;
   animation: fadeIn 1.5s ease-in-out;
     /* Mueve el texto más arriba */
-    transform: translateY(-110px);
+    transform: translateY(0px);
 
     /* Ajusta el tamaño del texto */
     font-size: rem; /* Cambia según lo necesites */
@@ -144,7 +144,7 @@ body {
   font-size: 3.5rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-bottom: 15px;
 
   /* Degradado en tonos rojo, morado y azul (estático) */
@@ -259,4 +259,40 @@ body {
   white-space: normal; /* Permite que el texto haga salto de línea */
   overflow: visible;   /* Evita que se recorte el contenido */
   text-align: justify; /* Para mejorar la apariencia del texto */
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .split-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .split-image img {
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .split-text {
+    width: 95%;
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+
+  .hero-content {
+    width: 90%;
+    padding: 10px;
+    font-size: 1.1rem;
+    transform: none; /* Eliminar desplazamiento hacia arriba */
+  }
 }

@@ -1,24 +1,32 @@
 .product-detail-container {
   display: flex;
-  align-items: flex-start; /* Alinea todo al inicio */
-  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: flex-start; /* Mantiene la alineación a la izquierda */
   gap: 30px;
   background: linear-gradient(#000000, #ede8e885);
-  width: 100vw; /* Asegura que ocupe toda la pantalla */
-  height: 100vh; /* Usa toda la altura de la pantalla */
-  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  margin: 0; /* Elimina márgenes */
   padding: 0;
-  padding-top: 140px; /* Ajusta según el tamaño de la navbar */
-  overflow: hidden; /* Evita desplazamientos no deseados */
+  padding-top: 140px;
+  overflow: hidden;
 }
 
 .product-image {
-  width: 100%;
-  max-height: 700px;
-  object-fit: cover;
-  border-radius: 10px;
+  flex: 0 0 50%; /* Ajusta el ancho de la sección de imagen */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra la imagen a la izquierda */
+  justify-content: center; /* Centra la imagen verticalmente */
 }
 
+.product-image img {
+  width: auto;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain; /* Evita que se estire */
+  border-radius: 10px;
+}
 /*
   TARJETA DEL PRODUCTO (texto):
   - Asigna ~60% del espacio en pantallas grandes.
@@ -69,18 +77,19 @@
 }
 .thumbnail-gallery {
   display: flex;
-  justify-content: center; /* Alinea las miniaturas en el centro */
-  gap: 10px; /* Espaciado entre miniaturas */
-  margin-top: 10px; /* Espacio entre la imagen y las miniaturas */
+  justify-content: flex-start; /* Alinea miniaturas a la izquierda */
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .thumbnail-gallery img {
-  width: 60px; /* Ajusta el tamaño de las miniaturas */
+  width: 60px;
   height: auto;
   cursor: pointer;
   border-radius: 5px;
   transition: transform 0.2s ease-in-out;
 }
+
 
 .thumbnail:hover {
   transform: scale(1.1); /* Efecto de hover */
@@ -128,12 +137,11 @@
   min-height: 100vh;
   padding-top: 140px;
 }
-
-.product-detail-container {
+.product-info {
+  flex: 0 0 50%;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 30px;
-  width: 80%;
-  max-width: 1200px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 500px; /* Limita el ancho del contenido de texto */
 }

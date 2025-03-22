@@ -41,7 +41,7 @@ const productData = {
   },
   3: {
     name: "Desengrasante Nanotecnológico de Alto Rendimiento",
-    image: "/desengrasante.png",
+    images: ["/desengrasante.png"],
     description:
       "Nuestro desengrasante nanotecnológico es una fórmula avanzada diseñada para eliminar eficazmente grasas, aceites y suciedad incrustada en motores y superficies industriales.",
     features: [
@@ -78,7 +78,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const product = productData[id];
 
-  const [selectedImage, setSelectedImage] = useState(product?.images[0]);
+  const [selectedImage, setSelectedImage] = useState(product?.images?.[0] || "");
   const [zoomStyle, setZoomStyle] = useState({});
   const [zoomVisible, setZoomVisible] = useState(false);
 
